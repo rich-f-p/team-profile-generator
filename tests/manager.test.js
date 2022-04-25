@@ -6,7 +6,7 @@ describe("Manger class", () => {
         expect(manager).toEqual({name: "bill", id: "127", email: "billemail", officeNumber: "10"})
     })
     describe("getName", () => {
-        it("returns name of manger", () => {
+        it("returns name of manager", () => {
 
             const name = manager.getName()
             expect(name).toEqual("bill")

@@ -1,4 +1,3 @@
-const { it, expect } = require('@jest/globals');
 const Engineer = require('../lib/Engineer')
 
 describe("Enginee class", () => {
