@@ -1,0 +1,27 @@
+{
+  "name": "team-profile-generator",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rich-f-p/team-profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.5.1"
+  },
+  "bugs": {
+    "url": "https://github.com/rich-f-p/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/rich-f-p/team-profile-generator#readme"
+}
