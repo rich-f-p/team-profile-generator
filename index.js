@@ -5,7 +5,7 @@ const Engineer = require('./lib/Engineer');
 const temp = require('./src/template')
 const fs = require('fs')
 var totalMem = [];
-
+// questions that will be displayed to the user when choosing a Manager
 const managerQuestions = [{
     type: 'input',
     message: 'Enter manager name:',
@@ -28,6 +28,7 @@ const managerQuestions = [{
     choices: ['Manager','Intern','Engineer','no more'],
     name:'newRole'
 }]
+// questions that will be displayed to the user when choosing a Intern
 const internQuestions = [{
     type: 'input',
     message: 'Enter a name:',
@@ -50,6 +51,7 @@ const internQuestions = [{
     choices: ['Manager','Intern','Engineer','no more'],
     name:'newRole'
 }]
+// questions that will be displayed to the user when choosing a Engineer
 const engineerQuestions = [{
     type: 'input',
     message: 'Enter a name:',
@@ -72,6 +74,7 @@ const engineerQuestions = [{
     choices: ['Manager','Intern','Engineer','no more'],
     name:'newRole'
 }]
+//function to set all of data into an array so that it can be accessed later
 function addAnother(data){
     if (data.newRole === 'Manager'){
         inquire.prompt(managerQuestions).then((data)=>{
@@ -94,25 +97,22 @@ function addAnother(data){
             addAnother(data);
         })
     }if(data.newRole ==='no more'){
-        console.log(totalMem)
-        //writefile
         completeFile(totalMem)
     }
     
 }
-
+// function to push to totalMem array
 function pushMem(data){
     totalMem.push(data)
 }
+// function to generate a completed html and css file with the users date included
 function completeFile(totalMem){
 var cardArr = []
 for(i=0;i<totalMem.length;i++){
     let newcard = temp.memberCard(totalMem[i])
     cardArr.push(newcard)
-    // htmlFile,cssFile,memberCard
     }
     const html = temp.htmlFile(cardArr);
-    // console.log(html)
     fs.writeFile('./dist/index.html', html, (err) => {
         if(err) {
             return console.error(err);
@@ -127,7 +127,7 @@ for(i=0;i<totalMem.length;i++){
         console.log("File saved successfully!");
     })
 }
-
+//function to start the application
 function init(){
     inquire.prompt(managerQuestions).then((data) =>{
         manager = new Manager(data.name,data.id,data.email,data.officeNumber)

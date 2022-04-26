@@ -1,7 +1,8 @@
 const Engineer = require('../lib/Engineer')
-
-describe("Enginee class", () => {
+//test Engineer class
+describe("Engineer class", () => {
     const engineer = new Engineer("joe","126","joeemail","joegit");
+    //test to see if it is a object
     it("creates an object with name, id, email, and office number", () =>{
         expect(engineer).toEqual({name: "joe", id: "126", email: "joeemail", github: "joegit"})
     })
@@ -33,6 +34,7 @@ describe("Enginee class", () => {
             expect(role).toEqual("Engineer")
         })
     })
+    //function to get github username
     describe('getGithub', () => {
         it('returns github username', () => {
             const git = engineer.getGithub();

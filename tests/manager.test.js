@@ -1,7 +1,8 @@
 const Manager = require("../lib/Manager");
-
-describe("Manger class", () => {
+//test Manager class
+describe("Manager class", () => {
     const manager = new Manager("bill","127","billemail","10");
+    //test to see if it is a object
     it("creates an object with name, id, email, and office number", () =>{
         expect(manager).toEqual({name: "bill", id: "127", email: "billemail", officeNumber: "10"})
     })

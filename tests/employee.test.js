@@ -1,8 +1,8 @@
 const Employee = require('../lib/Employee')
-
+// test employee class
 describe("Employee class", () => {
     const employee = new Employee("wilbert","128","wilbert@email.com");
-
+//test to see if it is a object
     it("creates a object with name, id, and email", () => {
         expect(employee).toEqual({ name: "wilbert", id: "128", email: "wilbert@email.com" });
     })

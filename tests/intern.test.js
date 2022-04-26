@@ -1,7 +1,8 @@
 const Intern = require('../lib/Intern')
-
-describe("Enginee class", () => {
+//test Intern class
+describe("Intern class", () => {
     const intern = new Intern("blank","125","blankemail","blankschool");
+    //test to see if it is a object
     it("creates an object with name, id, email, and office number", () =>{
         expect(intern).toEqual({name: "blank", id: "125", email: "blankemail", school: "blankschool"})
     })
@@ -33,6 +34,7 @@ describe("Enginee class", () => {
             expect(role).toEqual("Intern")
         })
     })
+    //function to get school information
     describe('getSchool', () => {
         it('returns school name', () => {
             const school = intern.getSchool();
