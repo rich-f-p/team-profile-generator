@@ -1,9 +1,34 @@
-const inquirer = require('inquirer');
+const inquire = require('inquirer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
+const fs = require('fs')
 
-const empQuestions = [{
+
+const managerQuestions = [{
+    type: 'input',
+    message: 'Enter manager name:',
+    name: 'name',
+},{
+    type: 'input',
+    message: 'Enter member ID: ',
+    name: 'id',
+},{
+    type:'input',
+    message: 'Enter member email: ',
+    name: 'email'
+},{
+    type: 'input',
+    message: "Enter manager's office number",
+    name: 'officeNumber'
+},{
+    type: 'list',
+    message: 'Add another member?',
+    choices: ['Manager','Intern','Engineer','no more'],
+    name:'newRole'
+}]
+
+const internQuestion = [{
     type: 'input',
     message: 'Enter a name:',
     name: 'name',
@@ -16,25 +41,42 @@ const empQuestions = [{
     message: 'Enter member email: ',
     name: 'email'
 },{
-    type: 'list',
-    message: 'Choose member role: ',
-    choices: ['Manager','Intern','Engineer'],
-    name:'role'
-}]
-
-const managerQuestion = [{
-    type: 'input',
-    message: "Enter manager's office number",
-    name: 'offNum'
-}]
-const internQuestion = [{
     type: 'input',
     message: 'Enter intern school',
     name: 'school'
-}]
-const engineerQuestions = [{
-    type: 'input',
-    message: 'Enter their github username',
-    name: 'git'
+},{
+    type: 'list',
+    message: 'Add another member?',
+    choices: ['Manager','Intern','Engineer','no more'],
+    name:'newRole'
 }]
 
+const engineerQuestions = [{
+    type: 'input',
+    message: 'Enter a name:',
+    name: 'name',
+},{
+    type: 'input',
+    message: 'Enter member ID: ',
+    name: 'id',
+},{
+    type:'input',
+    message: 'Enter member email: ',
+    name: 'email'
+},{
+    type: 'input',
+    message: 'Enter their github username',
+    name: 'github'
+},{
+    type: 'list',
+    message: 'Add another member?',
+    choices: ['Manager','Intern','Engineer','no more'],
+    name:'newRole'
+}]
+
+function init(){
+    inquire.prompt(managerQuestions).then((data) =>{
+        
+    })
+}
+init()
