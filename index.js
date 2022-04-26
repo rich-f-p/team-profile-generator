@@ -3,7 +3,7 @@ const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 const fs = require('fs')
-
+var totalMem = [];
 
 const managerQuestions = [{
     type: 'input',
@@ -73,10 +73,43 @@ const engineerQuestions = [{
     choices: ['Manager','Intern','Engineer','no more'],
     name:'newRole'
 }]
+function addAnother(data){
+    if (data.newRole === 'Manager'){
+        inquire.prompt(managerQuestions).then((data)=>{
+            manager = new Manager(data.name,data.id,data.email,data.officeNumber)
+            pushMem(manager);
+            addAnother(data);
+        })
+    }
+    if (data.newRole === 'Intern'){
+        inquire.prompt(managerQuestions).then((data)=>{
+            intern = new Intern(data.name,data.id,data.email,data.school)
+            pushMem(intern);
+            addAnother(data);
+        })
+    }
+    if (data.newRole === 'Engineer'){
+        inquire.prompt(managerQuestions).then((data)=>{
+            engineer = new Engineer(data.name,data.id,data.email,data.github)
+            pushMem(data);
+            addAnother(data);
+        })
+    }if(data.newRole ==='no more'){
+        console.log(totalMem)
+        //writefile
+    }
+    
+}
+
+function pushMem(data){
+    totalMem.push(data)
+}
 
 function init(){
     inquire.prompt(managerQuestions).then((data) =>{
-        
+        manager = new Manager(data.name,data.id,data.email,data.officeNumber)
+        pushMem(manager);
+        addAnother(data);
     })
 }
 init()
