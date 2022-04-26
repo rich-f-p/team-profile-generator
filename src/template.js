@@ -1,4 +1,4 @@
-
+//template for html file includes bootstrap
 function htmlFile(memcard){
     return`<!DOCTYPE html>
     <html>
@@ -11,7 +11,7 @@ function htmlFile(memcard){
         <title>Team Generator</title>
         </head>
         <body>
-            <header id="custom-color" class="container-fluid p-5">
+            <header id="custom-color" class="container-fluid p-5 mb-2">
                 <h1 id="custom-text" class="text-center">My Team</h1>
             </header>
             <section id="cardSection" class="row flex-row justify-content-center ">
@@ -24,17 +24,21 @@ function htmlFile(memcard){
         </body>
     </html>
 `}
+// cssfile that includes extra styling for generated elements
 function cssFile(){
     return`
 #custom-color{
     background-color:rgb(229, 78, 78);
     color: white;
 }
-#custom-text{
+#custom-card{
+    background-color: rgb(67, 67, 238);
     color: white;
 }
 `}
+//creates an indvidual card for each team member 
 function memberCard(data){
+    //check for specific information that will be displayed on the card
     let roleproperty = '';
 if(data.github){
     roleproperty = `Github: ${data.github}`;
@@ -45,10 +49,13 @@ if(data.school){
 if(data.officeNumber){
     roleproperty = `Office number: ${data.officeNumber}`;
 }
+//template for the generated cards including information on each member
 const genCard = `
 <div class="card m-1" style="width: 18rem;">
+    <div id="custom-card" class="card-body">
     <h3>${data.name}</h3>
     <h3>${data.getRole()}</h3>
+    </div>
     <div class="card m-3" style="width: 15rem;">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">${data.id}</li>
