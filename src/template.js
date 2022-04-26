@@ -41,7 +41,7 @@ function memberCard(data){
     //check for specific information that will be displayed on the card
     let roleproperty = '';
 if(data.github){
-    roleproperty = `Github: ${data.github}`;
+    roleproperty = `Github: <a href="https://github.com/${data.github}">${data.github}</a>`;
 }
 if(data.school){
     roleproperty = `School: ${data.school}`;
@@ -59,7 +59,7 @@ const genCard = `
     <div class="card m-3" style="width: 15rem;">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">${data.id}</li>
-            <li class="list-group-item">${data.email}</li>
+            <li class="list-group-item">Email: <a href="mailto:a@gmail.com">${data.email}</a></li>
             <li class="list-group-item">${roleproperty}</li>
         </ul>
     </div>
