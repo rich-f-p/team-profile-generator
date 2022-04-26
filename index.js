@@ -117,14 +117,14 @@ for(i=0;i<totalMem.length;i++){
         if(err) {
             return console.error(err);
         }
-        console.log("File saved successfully!");
+        console.log("Saved!");
     });
     const css = temp.cssFile();
     fs.writeFile('./dist/style.css',css, (err) => {
         if(err){
             return console.error(err);
         }
-        console.log("File saved successfully!");
+        console.log("Saved!");
     })
 }
 //function to start the application
