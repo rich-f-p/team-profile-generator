@@ -39,7 +39,7 @@ Start off by clone the repository in your terminal, once this is done navigate w
 * Node.js (to run the application in the terminal)
 
 ## Walkthrough Video
-* [click here](https://drive.google.com/file/d/1ZdwRJPKCaqQqMyL2ZUg0kRE3X8GpbCnZ/view)
+* [click here](https://drive.google.com/file/d/1hk5TYOAJgq0uia-M8VNhE4Hj-pgXhl7F/view)
 
 ## Technologies
 * Node.js
