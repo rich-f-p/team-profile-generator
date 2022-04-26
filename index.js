@@ -110,9 +110,22 @@ for(i=0;i<totalMem.length;i++){
     let newcard = temp.memberCard(totalMem[i])
     cardArr.push(newcard)
     // htmlFile,cssFile,memberCard
+    }
     const html = temp.htmlFile(cardArr);
     // console.log(html)
-}
+    fs.writeFile('./dist/index.html', html, (err) => {
+        if(err) {
+            return console.error(err);
+        }
+        console.log("File saved successfully!");
+    });
+    const css = temp.cssFile();
+    fs.writeFile('./dist/style.css',css, (err) => {
+        if(err){
+            return console.error(err);
+        }
+        console.log("File saved successfully!");
+    })
 }
 
 function init(){
