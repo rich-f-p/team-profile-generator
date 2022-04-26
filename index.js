@@ -2,6 +2,7 @@ const inquire = require('inquirer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
+const temp = require('./src/template')
 const fs = require('fs')
 var totalMem = [];
 
@@ -27,8 +28,7 @@ const managerQuestions = [{
     choices: ['Manager','Intern','Engineer','no more'],
     name:'newRole'
 }]
-
-const internQuestion = [{
+const internQuestions = [{
     type: 'input',
     message: 'Enter a name:',
     name: 'name',
@@ -50,7 +50,6 @@ const internQuestion = [{
     choices: ['Manager','Intern','Engineer','no more'],
     name:'newRole'
 }]
-
 const engineerQuestions = [{
     type: 'input',
     message: 'Enter a name:',
@@ -82,27 +81,38 @@ function addAnother(data){
         })
     }
     if (data.newRole === 'Intern'){
-        inquire.prompt(managerQuestions).then((data)=>{
+        inquire.prompt(internQuestions).then((data)=>{
             intern = new Intern(data.name,data.id,data.email,data.school)
             pushMem(intern);
             addAnother(data);
         })
     }
     if (data.newRole === 'Engineer'){
-        inquire.prompt(managerQuestions).then((data)=>{
+        inquire.prompt(engineerQuestions).then((data)=>{
             engineer = new Engineer(data.name,data.id,data.email,data.github)
-            pushMem(data);
+            pushMem(engineer);
             addAnother(data);
         })
     }if(data.newRole ==='no more'){
         console.log(totalMem)
         //writefile
+        completeFile(totalMem)
     }
     
 }
 
 function pushMem(data){
     totalMem.push(data)
+}
+function completeFile(totalMem){
+var cardArr = []
+for(i=0;i<totalMem.length;i++){
+    let newcard = temp.memberCard(totalMem[i])
+    cardArr.push(newcard)
+    // htmlFile,cssFile,memberCard
+    const html = temp.htmlFile(cardArr);
+    // console.log(html)
+}
 }
 
 function init(){
